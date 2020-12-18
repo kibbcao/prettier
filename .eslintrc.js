@@ -1,10 +1,22 @@
 module.exports = {
     root: true,
     env: {
-        node: true
+      "node": true
     },
-    extends: ['plugin:vue/essential', '@vue/standard'],
+    extends: [
+      "plugin:vue/essential",
+      "@vue/standard"
+    ],
+    parserOptions: {
+      "parser": "babel-eslint"
+    },
     rules: {
+        // allow paren-less arrow functions
+        'arrow-parens': 0,
+        // allow async-await
+        'generator-star-spacing': 0,
+        // allow debugger during development
+        'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
         // 强制使用一致的缩进
         indent: 0,
         // 单引号
@@ -27,8 +39,5 @@ module.exports = {
         'one-var': 0,
         'no-sequences': 0,
         'handle-callback-err': 0
-    },
-    parserOptions: {
-        parser: 'babel-eslint'
     }
 }
